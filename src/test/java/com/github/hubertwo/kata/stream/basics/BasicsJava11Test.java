@@ -9,9 +9,11 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toUnmodifiableList;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -50,7 +52,7 @@ class BasicsJava11Test {
     @DisplayName("Task: Get all fruits except BANANA")
     void task1() {
         final List<Fruit> everythingExceptBanana = FRUITS.stream()
-                // TODO: put your answer here
+                .filter(fruit -> fruit.getName() != "Banana")
                 .collect(toUnmodifiableList());
 
         assertThat(everythingExceptBanana)
@@ -73,12 +75,20 @@ class BasicsJava11Test {
         // Loads the String from resources file
         URI resource = ClassLoader.getSystemResource("java11/fruitList.txt").toURI();
         final String givenFruitList = Files.readString(Paths.get(resource));
-
         // TODO: convert givenFruitList to list using Streams
-        final List<Fruit> actualFruitList = null;
+        final List<Fruit> actualFruitList = Arrays.stream(givenFruitList.split("\n"))
+                .map(line -> createFruit(line))
+                .collect(Collectors.toList());
+
 
         assertThat(actualFruitList)
                 .containsExactlyInAnyOrderElementsOf(FRUITS);
     }
+
+    private Fruit createFruit(String line) {
+        String[] props = line.split(",");
+        return new Fruit(props[0], Integer.valueOf(props[1]));
+    }
+
 
 }

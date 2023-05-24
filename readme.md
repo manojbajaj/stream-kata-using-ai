@@ -1,20 +1,17 @@
-# Java Stream Kata
+# Stream Kata Using AI
 
 > A code kata is an exercise in programming which helps programmers hone their skills through practice and repetition.
 > <cite>https://en.wikipedia.org/wiki/Kata_(programming)</cite>
 
-This repository contains different tasks related to Java Streams. 
+This repository contains different tasks related to Java Streams. Idea is to solve each task using Java Stream API using AI assistance.
 
-## Leave a :star: :)
-If you like the content do not forget to leave a star at the top right corner. Thank you!
-
-https://github.com/HubertWo/java-stream-kata
 
 ## Setup
 Minimal setup is required. Tools you will need:
  - Java 11+ 
  - Maven
  - IDE (In my case IntelliJ IDEA)
+ - Github Co-pilot (optional)
  
 ## How to run exercises
 Each exercise is an jUnit test. 
@@ -24,8 +21,7 @@ You can run test from both Maven or any modern IDE.
 Each task has solution in "Click here to see the answer" block.
 <img src="https://github.com/HubertWo/java-stream-kata/blob/master/img/solution.png?raw=true" width="500px">
 
-#### Branch with all answers
-Branch ```answers``` has all answers in place and all tests are green.
+
 
 ### Maven
 To check *task1* from *Basics* package:

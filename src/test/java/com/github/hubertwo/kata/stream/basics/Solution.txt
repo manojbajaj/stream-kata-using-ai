@@ -1,0 +1,82 @@
+task1
+
+ // <editor-fold defaultstate="collapsed" desc="Click here to see the answer">
+    /*
+      .sorted(Comparator.comparing(Fruit::getCalories).reversed())
+      .limit(2)
+      .collect(toList());
+     */
+    //</editor-fold>
+
+
+task 2
+        /*
+          FRUITS.stream().mapToInt((Fruit fruit) -> fruit.getCalories() / 2).sum();
+         */
+
+
+task 3
+
+    /*
+        FRUITS.stream()
+            .collect(Collectors
+                .groupingBy((Fruit fruit) -> fruit.getName().charAt(0), Collectors.toSet()
+            )
+    ));
+     */
+task 4
+    // <editor-fold defaultstate="collapsed" desc="Click here to see the answer">
+    /*
+         Solution 1.
+
+         fruitBaskets.stream()
+            .flatMap(Collection::stream)
+            .collect(Collectors.toList());
+
+         Solution 2 - just to illustrate the concept of flatMap.
+
+         fruitBaskets.stream()
+                .map(basket -> basket.stream())
+                .reduce(Stream.empty(), Stream::concat)
+                .collect(Collectors.toList());
+
+     */
+    //</editor-fold>
+
+task 5
+    // <editor-fold defaultstate="collapsed" desc="Click here to see the answer">
+    /*
+        basket.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+    */
+    //</editor-fold>
+
+
+task 6
+    // <editor-fold defaultstate="collapsed" desc="Click here to see the answer">
+    /*
+         FRUITS.stream()
+                .reduce(new Fruit("", 0), (mixedFruit, fruitToAdd) -> new Fruit(
+                        mixedFruit.getName() + fruitToAdd.getName(),
+                        mixedFruit.getCalories() + fruitToAdd.getCalories()
+                ));
+    */
+    //</editor-fold>
+
+task 7
+    // <editor-fold defaultstate="collapsed" desc="Click here to see the answer">
+    /*
+         final Stream<Fruit> infiniteStreamOfFruits = Stream
+                .generate(randomFruitSupplier);
+     */
+    //</editor-fold>
+
+task 8
+    // <editor-fold defaultstate="collapsed" desc="Click here to see the answer">
+    /*
+            IntStream
+                .range(0, fruitList.size())
+                .filter(i -> i % 2 == 1)
+                .mapToObj(fruitList::get)
+                .collect(toList());
+     */
+    //</editor-fold>

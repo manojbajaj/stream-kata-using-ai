@@ -43,13 +43,7 @@ class BasicsTest {
 
     private static final Set<Fruit> FRUITS = Set.of(PAPAYA, BANANA, KIWI, MANGO, PEACH);
 
-    // <editor-fold defaultstate="collapsed" desc="Click here to see the answer">
-    /*
-      .sorted(Comparator.comparing(Fruit::getCalories).reversed())
-      .limit(2)
-      .collect(toList());
-     */
-    //</editor-fold>
+
     @Test
     @DisplayName("Task: Find 2 fruits with biggest amount of calories")
     void task1() {
@@ -58,11 +52,7 @@ class BasicsTest {
         assertThat(mostCaloricFruits).containsExactly(PAPAYA, MANGO);
     }
 
-    // <editor-fold defaultstate="collapsed" desc="Click here to see the answer">
-    /*
-      FRUITS.stream().mapToInt((Fruit fruit) -> fruit.getCalories() / 2).sum();
-     */
-    //</editor-fold>
+
     @Test
     @DisplayName("Task: Take half of each fruit and get the sum of calories")
     void task2() {
@@ -71,15 +61,6 @@ class BasicsTest {
         assertThat(sumOfCalories).isEqualTo(206);
     }
 
-    // <editor-fold defaultstate="collapsed" desc="Click here to see the answer">
-    /*
-        FRUITS.stream()
-            .collect(Collectors
-                .groupingBy((Fruit fruit) -> fruit.getName().charAt(0), Collectors.toSet()
-            )
-    ));
-     */
-    //</editor-fold>
     @Test
     @DisplayName("Task: Group fruits by first letter")
     void task3() {
@@ -92,23 +73,7 @@ class BasicsTest {
         assertThat(mapOfFruits.get('P')).hasSize(2);
     }
 
-    // <editor-fold defaultstate="collapsed" desc="Click here to see the answer">
-    /*
-         Solution 1.
 
-         fruitBaskets.stream()
-            .flatMap(Collection::stream)
-            .collect(Collectors.toList());
-
-         Solution 2 - just to illustrate the concept of flatMap.
-
-         fruitBaskets.stream()
-                .map(basket -> basket.stream())
-                .reduce(Stream.empty(), Stream::concat)
-                .collect(Collectors.toList());
-
-     */
-    //</editor-fold>
     @Test
     @DisplayName("Task: Put all fruits into one basket")
     void task4() {
@@ -123,11 +88,7 @@ class BasicsTest {
         assertThat(basketWithAllFruits).doesNotContain(KIWI);
     }
 
-    // <editor-fold defaultstate="collapsed" desc="Click here to see the answer">
-    /*
-        basket.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
-    */
-    //</editor-fold>
+
     @Test
     @DisplayName("Task: Count amount of each fruit in the basket")
     void task5() {
@@ -143,15 +104,7 @@ class BasicsTest {
         assertThat(countedFruit.get(KIWI)).isEqualTo(3);
     }
 
-    // <editor-fold defaultstate="collapsed" desc="Click here to see the answer">
-    /*
-         FRUITS.stream()
-                .reduce(new Fruit("", 0), (mixedFruit, fruitToAdd) -> new Fruit(
-                        mixedFruit.getName() + fruitToAdd.getName(),
-                        mixedFruit.getCalories() + fruitToAdd.getCalories()
-                ));
-    */
-    //</editor-fold>
+
     @Test
     @DisplayName("Task: Mix all fruits together and construct one, big, new Fruit")
     void task6() {
@@ -162,12 +115,7 @@ class BasicsTest {
         assertThat(bigJuicyFruit.getName()).isNotEmpty();
     }
 
-    // <editor-fold defaultstate="collapsed" desc="Click here to see the answer">
-    /*
-         final Stream<Fruit> infiniteStreamOfFruits = Stream
-                .generate(randomFruitSupplier);
-     */
-    //</editor-fold>
+
     @Test
     @DisplayName("Task: Generate list of 10 randomly picked fruits")
     void task7() {
@@ -193,15 +141,7 @@ class BasicsTest {
         assertThat(pickedFruits).hasSize(10);
     }
 
-    // <editor-fold defaultstate="collapsed" desc="Click here to see the answer">
-    /*
-            IntStream
-                .range(0, fruitList.size())
-                .filter(i -> i % 2 == 1)
-                .mapToObj(fruitList::get)
-                .collect(toList());
-     */
-    //</editor-fold>
+
     @Test
     @DisplayName("Task: Collect only second and forth (with odd index) fruit from fruitList")
     void task8() {
